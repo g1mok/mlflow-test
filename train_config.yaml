@@ -1,0 +1,28 @@
+DATA:
+  data_path: ./train_data
+
+MODEL:
+  model: efficientnet
+  img_mode: img
+  stroke_mode: gap
+  model_mode: cnn
+  pretrained: False
+  loss_function: CrossEntropyLoss
+  optimizer: Adam
+  scheduler: ReduceLROnPlateau
+
+TRAIN:
+  epochs: 5
+  batch_size: 16
+  learning_rate: 1e-3
+  early_stopping_patience: 10
+
+SAVE:
+  save_model_path: ./save_model/
+
+LOGGING_TOOL:
+  set_mlflow:
+    - user_name: jiwon
+    - run_name: test_v1
+    - register_model: test_model
+    - description: train data 20개
